@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Login
+
+<h1>Company XYZ</h1>
+<div>
+       @using (Html.BeginForm("Login", "Login",FormMethod.Post))
+                
+                {
+        <input type="text" name="LoginName" class="form-control" placeholder="LoginName" autocomplete="off" autofocus>
+    <br>
+        <input type="Password" name="Password" class="form-control" placeholder="Password">
+    <label class="checkbox">
+        <span class="pull-right">
+
+            <a data-toggle="modal" href="#myModal1"><b>Forgot&nbsp; Password?</b></a>
+
+        </span>
+    </label>
+    <button class="btn btn-theme btn-block" type="submit">
+        <b>Login</b>
+            HttpContext.Session.GetString("StudentName");
+    </button>
+                }
+
+</div>
+

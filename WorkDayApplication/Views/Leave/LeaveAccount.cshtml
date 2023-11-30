@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WorkDayApplication.Models.LeaveAccount>
+
+@{
+    ViewData["Title"] = "LeaveAccount";
+}
+
+<h1>LeaveAccount</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opening)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credited)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Availed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Applied)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Approved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoginName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opening)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credited)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Availed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Applied)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+            <td>
+                @Html.ActionLink("Apply", "ApplyLeave", new { Leaveid =item.Id })|
+                    @Html.ActionLink("Cancel", "CancelLeave", new { Leaveid =item.Id })|
+                    @Html.ActionLink("Approve", "ApproveLeave", new { Leaveid =item.Id })|
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

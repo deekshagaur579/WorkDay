@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WorkDayApplication.Models.Employee>
+
+@{
+    ViewData["Title"] = "EmployeeList";
+}
+
+<h1>EmployeeList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model. LoginName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. LastName)
+            </th>
+          @*   <th>
+                @Html.DisplayNameFor(model => model. Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. Updated)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model. Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. AddressLine1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. AddressLine2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. AddressLine3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model. Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            @Html.HiddenFor(modelItem => item.id)
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item. LoginName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. LastName)
+            </td>
+      @*       <td>
+                @Html.DisplayFor(modelItem => item. Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. Updated)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item. Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. AddressLine1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. AddressLine2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. AddressLine3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item. Department)
+            </td>
+            <td>
+                    @Html.CheckBoxFor(modelItem => item. Active)
+            </td>
+            <td>
+                    @if (item.Active)
+                    {
+                        @Html.ActionLink("InActive", "EmployeeStatus","Employee" , new { id=item.id,status=false })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Active", "EmployeeStatus","Employee", new { id=item.id ,status=true })
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
